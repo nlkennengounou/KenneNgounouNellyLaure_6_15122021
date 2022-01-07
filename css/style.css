@@ -1,5 +1,4 @@
-// ****************************** FISHEYE WEB SITE ****************************** //
-
+/* ****************************** FISHEYE WEB SITE ****************************** */
 
 @import url("photographer.css");
 
@@ -50,4 +49,9 @@ h1 {
 .photographer_section article img {
     height: 200px;
     width: 200px;
+}
+
+
+a {
+    text-decoration: none;
 }
