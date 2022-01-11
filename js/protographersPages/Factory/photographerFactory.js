@@ -18,7 +18,7 @@ function photographerFactory(data) {
         //article.appendChild(h2); //name
 
         const a = document.createElement( 'a' );
-        a.setAttribute("href" , `photographers.html?id=${id}` )
+        a.setAttribute("href" , `photographer.html?id=${id}` )
         a.setAttribute("title", `${name}`);
         a.appendChild(img);
         a.appendChild(h2);

@@ -1,6 +1,5 @@
 /* ****************************** FISHEYE WEB SITE ****************************** */
-
-
+/*
 #contact_modal {
     display: none;
 }
@@ -76,4 +75,8 @@ form input {
     height: 68px;
     border: none;
     border-radius: 5px;
-}
+}*/
+
+@import './photographesPages/header.css';
+@import './photographesPages/photographer-profil.css';
+@import './photographesPages/form.css'
