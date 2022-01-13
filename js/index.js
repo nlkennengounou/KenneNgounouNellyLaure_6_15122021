@@ -8,16 +8,15 @@ import PhotographerProfil from './protographersPages/photographers/photographer.
         console.log(data)
      
         if (window.location.pathname.includes("/photographer.html")) {
-            console.log("bonjour")
+            console.log("bonjour PAGE DU PHOTOGRAPHE" )
             new PhotographerProfil().displayPhotographerProfil(data);
 
         } else if(window.location.pathname.includes("/index.html")) {
+            console.log("PAGE D'ACCUEIL")
             new homePage().displayPhotographers(data);
         }
         
-    })
-    
-    /*.catch( () => {
+    })/*.catch( () => {
         console.error('Failed to load apiFishEye');
     })*/
 })();

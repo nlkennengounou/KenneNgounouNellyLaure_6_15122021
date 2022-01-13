@@ -7,55 +7,107 @@ export default class ContactForm {
         let lastNameElt = document.getElementById('last-name');
         let emailElt = document.getElementById('email');
         let messageElt = document.getElementById('message');
-        const regex = /^[a-zA-ZÀ-ÖØ-öø-ÿ]+$/;
+
+        formElt.addEventListener('submit', (e) => {
+            e.preventDefault();
+            let firstName = this.isFirstNameValid(firstNameElt);
+            let lastName = this.isLastNameValid(lastNameElt);
+            let email = this.isEmailValid(emailElt);
+            let message = this.isMessageValid(messageElt);
+          
+            let isFormValid = firstName && lastName && email && message
+            if (isFormValid) {
+                firstNameElt.style.border = 'none';
+                lastNameElt.style.border = 'none';
+                emailElt.style.border = 'none';
+                messageElt.style.border = 'none';
+                this.displayMessageValidation(firstNameElt, lastNameElt, emailElt, messageElt);
+                document.getElementById('contact-form').reset();
+            } 
+        });
+
+        formElt.addEventListener('keyup', (e) => {
+            e.preventDefault();
+            let firstName = this.isFirstNameValid(firstNameElt);
+            let lastName = this.isLastNameValid(lastNameElt);
+            let email = this.isEmailValid(emailElt);
+            let message = this.isMessageValid(messageElt);
+          
+            let isFormValid = firstName && lastName && email && message
+            if (isFormValid) {
+                firstNameElt.style.border = 'none';
+                lastNameElt.style.border = 'none';
+                emailElt.style.border = 'none';
+                messageElt.style.border = 'none';
+            } 
+        });
     }
 
-    checkIfFormIsValid(event) {
-        event.preventDefault(); // move all default reactions on fields
-      
-        let firstName = isFirstNameValid();
-        let lastName = isLastNameValid();
-        let email = isEmailValid();
-        let message = isMessageValid();
-      
-        let isFormValid = firstName && lastName && email && message
-        if (isFormValid){
+    displayMessageValidation(firstName, lastName, email, message) {
 
-            console.log("BBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBBB")
-        }
+        console.group('Contact Message');
+        console.log('Prénom : ' + firstName.value);
+        console.log('Nom : ' + lastName.value);
+        console.log('Email : ' + email.value);
+        console.log('Message : ' + message.value);
+        console.groupEnd();
+        
+        const confirmationMessageElt = document.getElementById('formDatas');
+
+        let template=`
+        
+        <div class="confirmation-message" id="confirmation-message">
+            <p class=""> Firstname = ${firstName.value} </p>
+            <p class=""> LastName = ${lastName.value} </p>
+            <p class=""> Email = ${email.value} </p>
+            <p class=""> Message = ${message.value} </p>
+            <p> </p>
+            <span>Merci pour votre message.</span>
+            <p> </p>
+            <p> </p>
+        </div>`
+        confirmationMessageElt.innerHTML=template;
     }
 
-    isFirstNameValid() {
+
+    isFirstNameValid(firstNameElt) {
         let inputFirstName = new InputFormElement(firstNameElt, "Le champ Prénom a un minimum de 2 caractères");
         let isValid = (firstNameElt.value.length >= 2);
-        removeOrDisplayError(inputFirstName, isValid);
+        this.removeOrDisplayError(inputFirstName, isValid);
         return isValid;
-      }
+    }
       
-    isLastNameValid() {
+    isLastNameValid(lastNameElt) {
         let inputLastName = new InputFormElement(lastNameElt, "Le champ Nom a un minimum de 2 caractères");
         let isValid = (lastNameElt.value.length >= 2);
-        removeOrDisplayError(inputLastName, isValid);
+        this.removeOrDisplayError(inputLastName, isValid);
         return isValid;
     }
 
-    isEmailValid() {
+    checkRegexFormat(str, strFormat) {
+        return strFormat.test(str);
+    }
+
+    isEmailValid(emailElt) {
         let emailFormat = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
         let inputEmail = new InputFormElement(emailElt, "Le format du Champ Email est invalide");
-        let isValid = checkRegexFormat(emailElt.value, emailFormat);
-        removeOrDisplayError(inputEmail, isValid);
+        let isValid = this.checkRegexFormat(emailElt.value, emailFormat);
+        this.removeOrDisplayError(inputEmail, isValid);
         return isValid;
     }
 
-    isEmailValid() {
+    isMessageValid(messageElt) {
         let inputMessage = new InputFormElement(messageElt, "Veuillez renseigner un message");
-        let isValid = (messageElt.value.trim() === '' || messageElt.value.trim() == null);
-        removeOrDisplayError(inputMessage, isValid);
+        let isValid = (messageElt.value.length >= 2);
+        this.removeOrDisplayError(inputMessage, isValid);
         return isValid;
+    }
+
+    removeOrDisplayError(elt, isValid) {
+        isValid ? elt.removeDisplayError() : elt.displayError();
     }
 
 }
-
 
 class InputFormElement {
     constructor(element, errorMessage) {

@@ -1,4 +1,5 @@
 import Modal from './modal.js';
+import Form from './form.js';
 export default class PhotographerProfil {
     displayPhotographerProfil(data){
         let photographersData = data.photographers;
@@ -21,6 +22,7 @@ export default class PhotographerProfil {
         `
         sectionPhotographerProfil.innerHTML = templatePhotographerProfil;
         new Modal().modal(photographersData);
+        new Form().getfields();
     }
     
 }

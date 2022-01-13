@@ -4,7 +4,7 @@ function photographerFactory(data) {
     const picture = `media/profil/${portrait}`;
 
     function getUserCardDOM() {
-        const photographer_section =  document.getElementsByClassName('photographer_section')
+        const photographer_section =  document.getElementsByClassName('photographers_section')
         const article = document.createElement( 'article' );
 
         const img = document.createElement( 'img' );
