@@ -9,8 +9,9 @@
     <link href="css/style.css" rel="stylesheet" type="text/css"/>
     <link href="css/photographer.css" rel="stylesheet" type="text/css"/>
     <link href="media/icons/favicon.png" rel="icon" type="image/png" >
+    <script src="https://kit.fontawesome.com/9af6369aee.js" crossorigin="anonymous"></script>
+
     <link href="https://fonts.googleapis.com/css?family=DM+Sans&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
   </head>
 
 
@@ -22,11 +23,12 @@
     </header>
 
     <main id="main">
-      <!-- HEADER -->
+      <!-- informations du photographe -->
       <section id="photographe-profil" aria-label="Profil du photographe">
         <section id="photographe-profil-header"></section>
       </section>
 
+      <!-- Formulaire -->
       <div role="dialog" id="form-dialog" aria-label="contact me form" aria-labelledby="form-title" aria-hidden="true">
         
         <form action="photographer-page.html" method="POST" id="contact-form"> 
@@ -74,6 +76,31 @@
 
         </form>
       </div>
+
+      <!-- Drop Down GalleryFilter -->
+      <div class="gallery-filter">
+        <span id="filter-title">Trier par</span>
+        <div id="filter-area">
+          <button class="filter-btn" aria-haspopup="listbox">Popularité</button>
+          <span class="fas fa-chevron-down arrow-down-open" role='button'></span>
+          <ul class="filter-options" role="listbox">
+              <li class="filter-option" role='option'>Popularité 
+                <span class="fas fa-chevron-up arrow-up-close"></span>
+              </li>
+              <li class="filter-option" role='option'>Date</li>
+              <li class="filter-option" role='option'>Tître</li>
+          </ul>
+        </div>
+      </div>
+        
+      <!-- Gallerie photo et videos du photographe -->
+      <section id='photographe-gallery' aria-label='photographe gallery'></section>
+
+      <!-- BOX -->
+      <div id="box" aria-label="photographer likes and price"></div>
+      
+    </div>
+
     </main>
 
     <script type="module" src="js/index.js"></script>

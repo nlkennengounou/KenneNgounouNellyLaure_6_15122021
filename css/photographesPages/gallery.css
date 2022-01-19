@@ -1,0 +1,72 @@
+/* PH WORKS MEDIAS */
+#photographe-gallery {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    margin: 2.8125rem 0;
+    padding: 0 1.25rem;
+}
+
+.btn-like {
+    background: none;
+    border: none;
+    color: #901c1c;
+    font-size: 1.1rem;
+    margin-left: -.3rem;
+}
+
+.photographe-gallery-elt {
+    color: #901c1c;
+    font-size: 1.1em;
+    font-weight: 500;
+    margin: 0 0 .625rem;
+    width: 20.9375rem;
+}
+
+.photographe-gallery-elt .fa-heart:hover,
+.photographe-gallery-elt img:hover,
+.photographe-gallery-elt video:hover {
+    cursor: pointer;
+}
+
+.photographe-gallery-elt .photographe-gallery-title {
+    width: 14.0625rem;
+}
+
+.photographe-gallery-elt img,
+.photographe-gallery-elt video {
+    border-radius: .3125rem;
+    height: 11.875rem;
+    object-fit: cover;
+    width: 20.9375rem;
+}
+
+.photographe-gallery-elt-text {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    margin-top: 0;
+}
+
+.photographe-gallery-title {
+    font-size: 1em;
+    font-weight: 400;
+}
+
+@media (min-width: 1300px) {
+    #photographe-gallery {
+        justify-content: space-between;
+        margin: 2.8125rem 6.25rem;
+        padding: 0;
+    }
+
+    .photographe-gallery-elt {
+        width: 21.875rem;
+    }
+
+    .photographe-gallery-elt img,
+    .photographe-gallery-elt video {
+        height: 18.75rem;
+        width: 21.875rem;
+    }
+}
