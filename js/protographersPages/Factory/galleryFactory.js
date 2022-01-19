@@ -21,7 +21,6 @@ export default class GalleryFactory {
                 <a href='#' title=${element.name}> ${mediaHTML.outerHTML} </a>
                 <div class="photographe-gallery-elt-text">
                     <h2 class="photographe-gallery-title">${element.title}</h2>
-                    <span class="photographe-gallery-price">${element.price} €</span>
                     <div class='photographe-elt-like'>
                         <span class="photographe-gallery-like">
                             <a class="like-counter">${element.likes}</a>
@@ -31,12 +30,11 @@ export default class GalleryFactory {
                 </div>
                 `
                 articlePhotographeGallery.innerHTML = galleryTemplate;
-
                 sectionPhotographeGallery.appendChild(articlePhotographeGallery);
                 articlePhotographeGallery.classList.add("photographe-gallery-elt");
                 this.totalLike += parseInt(element.likes);
                 currentMedia.push(mediaHTML.outerHTML);
-                currentMediaName.push(element.photoName);
+                currentMediaName.push(element.title);
             }
         })
         return this;

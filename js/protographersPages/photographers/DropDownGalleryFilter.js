@@ -50,9 +50,9 @@ export default class DropDownGalleryFilter {
                 btnSort.innerHTML = `Titre`;
 
                 mediaArraySort = media.sort((a, b) => { // SORT BY TITLE
-                    if (a.photoName.toLowerCase() < b.photoName.toLowerCase()) {
+                    if (a.title.toLowerCase() < b.title.toLowerCase()) {
                         return -1;
-                    } else if (a.photoName.toLowerCase() > b.photoName.toLowerCase()) {
+                    } else if (a.title.toLowerCase() > b.title.toLowerCase()) {
                         return 1;
                     }
                 })
@@ -63,7 +63,7 @@ export default class DropDownGalleryFilter {
 
     displaySortMedia(mediaArraySort) {
         // DISPLAY PHOTOGRAPHERS WORKS WITH SORT
-        document.getElementById("photagraphe-gallery").innerHTML = "";
+        document.getElementById("photographe-gallery").innerHTML = "";
         new GalleryFactory().builder(mediaArraySort);
     }
 }
