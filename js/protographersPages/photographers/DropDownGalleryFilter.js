@@ -62,7 +62,7 @@ export default class DropDownGalleryFilter {
     }
 
     displaySortMedia(mediaArraySort) {
-        // DISPLAY PHOTOGRAPHERS WORKS WITH SORT
+        // Display photographers gallery
         document.getElementById("photographe-gallery").innerHTML = "";
         new GalleryFactory().builder(mediaArraySort);
     }
