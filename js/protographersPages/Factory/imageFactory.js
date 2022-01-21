@@ -23,7 +23,7 @@ export default class ImageFactory {
         url_media =`./media/photographers/${name.split(" ")[0]}/${element.image}`;
         Image.setAttribute('src', url_media);
 
-        Image.setAttribute('alt', element.name);
+        Image.setAttribute('alt', element.title);
         Image.setAttribute('role', 'button');
         Image.className = 'photographe-media';
         return Image;

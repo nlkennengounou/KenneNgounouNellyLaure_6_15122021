@@ -1,9 +1,7 @@
 export default class VideoFactory {
     // Create a video element
     createHTML(element) {
-        let picture =`./media/photographers/Mimi/${element.video}`;
         let video = document.createElement('video');
-        console.log(element)
         video.setAttribute("controls", "controls");
 
         let url_media = "";
@@ -34,6 +32,7 @@ export default class VideoFactory {
 
 }
 
+/*
 function url_media(element){
     const id = window.location.search.split('id=')[1];
     let url_media = "";
@@ -55,4 +54,4 @@ function url_media(element){
     url_media =`./media/photographers/${name.split(" ")[0]}/${element.video}`;
     console.log(url_media)
     return url_media;
-}
+}*/

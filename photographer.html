@@ -96,9 +96,19 @@
       <!-- Gallerie photo et videos du photographe -->
       <section id='photographe-gallery' aria-label='photographe gallery'></section>
 
-      <!-- BOX -->
+      <!-- Box-->
       <div id="box" aria-label="photographer likes and price"></div>
       
+      <!-- lightbox-modal -->
+      <section id="gallery-lightbox" aria-hidden="true">
+        <article id="lightbox-body" role='dialog'>
+            <span class="fas fa-times close-lightbox-icon" role="button" title="Close lightbox-modal"></span>
+            <span class="fas fa-chevron-left left-arrow-lightbox-icon" role="button" title="Previous image"></span>
+            <span class="fas fa-chevron-right right-arrow-lightbox-icon" role="button" title="Next image"></span>
+            <div id="gallery-lightbox-media"></div>
+            <div id="gallery-lightbox-name"></div>
+        </article>
+      </section>
     </div>
 
     </main>

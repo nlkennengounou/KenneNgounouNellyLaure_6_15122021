@@ -1,3 +1,4 @@
+import LightBox from '../photographers/lightbox.js';
 import MediaFactory from './MediaFactory.js';
 
 export default class GalleryFactory {
@@ -18,7 +19,7 @@ export default class GalleryFactory {
                 let articlePhotographeGallery = document.createElement("article");
                 let mediaHTML = mediaFactory.renderMedia(element);
                 let galleryTemplate = `
-                <a href='#' title=${element.name}> ${mediaHTML.outerHTML} </a>
+                <a href='#' title=${element.title}> ${mediaHTML.outerHTML} </a>
                 <div class="photographe-gallery-elt-text">
                     <h2 class="photographe-gallery-title">${element.title}</h2>
                     <div class='photographe-elt-like'>
@@ -35,6 +36,8 @@ export default class GalleryFactory {
                 this.totalLike += parseInt(element.likes);
                 currentMedia.push(mediaHTML.outerHTML);
                 currentMediaName.push(element.title);
+                let lightBox = new LightBox()
+                lightBox.open(currentMedia, currentMediaName)
             }
         })
         return this;
