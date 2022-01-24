@@ -1,117 +1,125 @@
+//************ class LightBox :  Affichage de la LightBox modale                                    ************//
+//************                   Afficher les éléments suivant et précédents le media en cours      ************//
+//************                      Affchier le media selectionné                                   ************//
+
 export default class LightBox {
-    constructor() {
-        this.currentIndex = 0;
-    }
+	constructor() {
+		this.currentIndex = 0;
+	}
 
-    // initialize the lightbox when clicking on a media, call the functions allowing to navigate in the lightbox
-    open(currentMedia, currentMediaName) {
-        let getMedias = Array.from(document.getElementsByClassName('photographe-media'));
-        getMedias.forEach((mediaWorks, index) => mediaWorks.addEventListener("click", () => {
-            let lightBoxMedia = document.getElementById('gallery-lightbox-media');
-            let lightBoxName = document.getElementById('gallery-lightbox-name');
-            let src = currentMedia[index];
-            let nameSrc = currentMediaName[index];
-            this.currentIndex = index;
-            console.log(src, nameSrc);
-            document.getElementById('gallery-lightbox').style.display = 'block';
-            lightBoxMedia.innerHTML = `${src}`;
-            lightBoxName.innerHTML = `${nameSrc}`;
-        }))
-        this.previous(document.querySelector('.left-arrow-lightbox-icon'), currentMedia, currentMediaName);
-        this.next(document.querySelector('.right-arrow-lightbox-icon'), currentMedia, currentMediaName);
-        this.close();
-        this.keyboard(currentMedia, currentMediaName);
-        return this;
-    }
+	// ouvrir la lightbox quand on clique sur un media
+	open(currentMedia, currentMediaName) {
+		let getMedias = Array.from(document.getElementsByClassName("photographe-media"));
+		getMedias.forEach((mediaWorks, index) => mediaWorks.addEventListener("click", () => {
+			let lightBoxMedia = document.getElementById("gallery-lightbox-media");
+			let lightBoxName = document.getElementById("gallery-lightbox-name");
+			let src = currentMedia[index]; // recuperer la source
+			let nameSrc = currentMediaName[index]; //recuperer le nom du media
+			this.currentIndex = index; 
 
-    // return to previous media
-    previous(elt, media, name) {
-        elt.addEventListener('click', () => {
-            this.currentIndex -= 1;
-            let lightBoxMedia = document.getElementById('gallery-lightbox-media');
-            let lightBoxName = document.getElementById('gallery-lightbox-name');
+			//Charger le contenu de la lightBox
+			document.getElementById("gallery-lightbox").style.display = "block";
+			lightBoxMedia.innerHTML = `${src}`;
+			lightBoxName.innerHTML = `${nameSrc}`;
+		}));
 
-            if (this.currentIndex < 0) {
-                this.currentIndex = media.length - 1;
-                this.currentIndex = name.length - 1;
-            }
+		this.previous(document.querySelector(".left-arrow-lightbox-icon"), currentMedia, currentMediaName);
+		this.next(document.querySelector(".right-arrow-lightbox-icon"), currentMedia, currentMediaName);
+		this.close();
+		this.keyboard(currentMedia, currentMediaName);
+		return this;
+	}
 
-            let src = media[this.currentIndex];
-            let nameSrc = name[this.currentIndex];
+	// retourne le media précédent
+	previous(elt, media, name) {
+		elt.addEventListener("click", () => {
+			this.currentIndex -= 1;
+			let lightBoxMedia = document.getElementById("gallery-lightbox-media");
+			let lightBoxName = document.getElementById("gallery-lightbox-name");
 
-            lightBoxMedia.innerHTML = `${src}`;
-            lightBoxName.innerHTML = `${nameSrc}`;
-        })
-    }
+			if (this.currentIndex < 0) {
+				this.currentIndex = media.length - 1;
+				this.currentIndex = name.length - 1;
+			}
 
-    // turn to the next media
-    next(elt, media, name) {
-        elt.addEventListener('click', () => {
-            this.currentIndex += 1;
-            let lightBoxMedia = document.getElementById('gallery-lightbox-media');
-            let lightBoxName = document.getElementById('gallery-lightbox-name');
+			let src = media[this.currentIndex];
+			let nameSrc = name[this.currentIndex];
 
-            if (this.currentIndex > name.length - 1) {
-                this.currentIndex = 0;
-            }
+			lightBoxMedia.innerHTML = `${src}`;
+			lightBoxName.innerHTML = `${nameSrc}`;
+		});
+	}
 
-            let src = media[this.currentIndex];
-            let nameSrc = name[this.currentIndex];
+	// retourne le media suivant
+	next(elt, media, name) {
+		elt.addEventListener("click", () => {
+			this.currentIndex += 1;
+			let lightBoxMedia = document.getElementById("gallery-lightbox-media");
+			let lightBoxName = document.getElementById("gallery-lightbox-name");
 
-            lightBoxMedia.innerHTML = `${src}`;
-            lightBoxName.innerHTML = `${nameSrc}`;
-        })
-    }
+			if (this.currentIndex > name.length - 1) {
+				this.currentIndex = 0;
+			}
 
-    close() {
-        document.querySelector('.close-lightbox-icon').addEventListener('click', () => {
-            let lightbox = document.getElementById('gallery-lightbox');
+			let src = media[this.currentIndex];
+			let nameSrc = name[this.currentIndex];
 
-            lightbox.style.display = 'none';
-        })
-    }
+			lightBoxMedia.innerHTML = `${src}`;
+			lightBoxName.innerHTML = `${nameSrc}`;
+		});
+	}
 
-    keyboard(currentMedia, currentMediaName) {
-        document.addEventListener('keydown', (key) => {
-            let lightBoxMedia = document.getElementById('gallery-lightbox-media');
-            let lightBoxName = document.getElementById('gallery-lightbox-name');
+	// fermer la lightbox modal
+	close() {
+		document.querySelector(".close-lightbox-icon").addEventListener("click", () => {
+			let lightbox = document.getElementById("gallery-lightbox");
 
-            // ESCAPE TO CLOSE
-            if (key.code == "Escape") {
-                let lightBox = document.getElementById('gallery-lightbox');
-                lightBox.style.display = 'none';
-            }
+			lightbox.style.display = "none";
+		});
+	}
 
-            // ARROW RIGHT TO STEP RIGHT
-            else if (key.code == "ArrowRight") {
-                this.currentIndex += 1;
+	// permettre la manipulation de la lightbox avec les touches du clavier
+	keyboard(currentMedia, currentMediaName) {
+		document.addEventListener("keydown", (key) => {
+			let lightBoxMedia = document.getElementById("gallery-lightbox-media");
+			let lightBoxName = document.getElementById("gallery-lightbox-name");
 
-                if (this.currentIndex > currentMediaName.length - 1) {
-                    this.currentIndex = 0;
-                }
+			// Appuyer la touche ECHAP pour fermer la lightbox
+			if (key.code == "Escape") {
+				let lightBox = document.getElementById("gallery-lightbox");
+				lightBox.style.display = "none";
+			}
 
-                let src = currentMedia[this.currentIndex];
-                let nameSrc = currentMediaName[this.currentIndex];
+			// utiliser la flèche droite pour afficher le media suivant
+			else if (key.code == "ArrowRight") {
+				this.currentIndex += 1;
 
-                lightBoxMedia.innerHTML = `${src}`;
-                lightBoxName.innerHTML = `${nameSrc}`;
-            }
+				if (this.currentIndex > currentMediaName.length - 1) {
+					this.currentIndex = 0;
+				}
 
-            // ARROW LEFT TO STEP LEFT
-            else if (key.code == "ArrowLeft") {
-                this.currentIndex -= 1;
+				let src = currentMedia[this.currentIndex];
+				let nameSrc = currentMediaName[this.currentIndex];
 
-                if (this.currentIndex < 0) {
-                    this.currentIndex = currentMedia.length - 1;
-                    this.currentIndex = currentMediaName.length - 1;
-                }
+				lightBoxMedia.innerHTML = `${src}`;
+				lightBoxName.innerHTML = `${nameSrc}`;
+			}
 
-                let src = currentMedia[this.currentIndex];
-                let nameSrc = currentMediaName[this.currentIndex];
+			// utiliser la flèche gauche pour afficher le media précédent
+			else if (key.code == "ArrowLeft") {
+				this.currentIndex -= 1;
 
-                lightBoxMedia.innerHTML = `${src}`;
-                lightBoxName.innerHTML = `${nameSrc}`;
-            }
-        });
-    }
+				if (this.currentIndex < 0) {
+					this.currentIndex = currentMedia.length - 1;
+					this.currentIndex = currentMediaName.length - 1;
+				}
+
+				let src = currentMedia[this.currentIndex];
+				let nameSrc = currentMediaName[this.currentIndex];
+
+				lightBoxMedia.innerHTML = `${src}`;
+				lightBoxName.innerHTML = `${nameSrc}`;
+			}
+		});
+	}
 }

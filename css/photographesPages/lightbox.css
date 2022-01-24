@@ -1,4 +1,4 @@
-/* LIGHTBOX */
+/* Lightbox style */
 #lightbox-body {
     background-color: #fff;
     height: 90%;
@@ -17,21 +17,27 @@
     margin: 0 auto 1rem;
     overflow: hidden;
     width: 90%;
+    display: flex;
+    align-content: center;
 }
 
-#gallery-lightbox-media img,
-#gallery-lightbox-media video {
+#gallery-lightbox-media img {
     height: 100%;
     object-fit: contain;
     width: 100%;
 }
 
+#gallery-lightbox-media video {
+    height: 90%;
+    object-fit: fill;
+    width: 100%;
+}
 .close-lightbox-icon {
     color: #901C1C;
     font-size: 1.7rem;
     position: absolute;
     right: -3rem;
-    top: .5rem;
+    top: 0.5rem;
 }
 
 .left-arrow-lightbox-icon {
@@ -69,14 +75,15 @@
 }
 
 #gallery-lightbox-name{
-    transform: translate(10%, 0);
+    left: 10rem;
+    position: absolute;
 }
 
 @media (min-width: 600px) {
     .close-lightbox-icon {
         cursor: pointer;
         right: 1rem;
-        top: .5rem;
+        top: 0.5rem;
     }
 
     .left-arrow-lightbox-icon {
@@ -93,6 +100,16 @@
 
     #gallery-lightbox  article:nth-last-child(1) {
         left: 50%;
-        padding: .5rem 0;
+        padding: 0.5rem 0;
+    }
+
+    
+}
+
+@media (max-width: 900px) {
+    #gallery-lightbox-media video {
+        height: 100%;
+        object-fit: contain;
+        width: 100%;
     }
 }

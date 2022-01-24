@@ -1,11 +1,12 @@
-/* FORM */
+/* Contact Form Style */
 
-.modalbg{
+.modalbg {
     background-color: rgba(8, 7, 7, 0.4);
 }
+
 #form-dialog {
     border: none;
-    border-radius: .3rem;
+    border-radius: 0.3rem;
     display: none;
     left: 50%;
     max-width: 42rem;
@@ -35,7 +36,7 @@
     margin-top: 7px;
     opacity: 0;
     text-align: left;
-    transition: .3s;
+    transition: 0.3s;
 }
 
 .formData[data-error-visible="true"]::after {
@@ -44,7 +45,7 @@
 
 form {
     background: #db8876;
-    border-radius: .3rem;
+    border-radius: 0.3rem;
     display: flex;
     flex-direction: column;
     padding: 1.5rem 2.2rem 2.2rem;
@@ -57,7 +58,7 @@ form #photographe-form-name {
 form .close-form-icon {
     color: #fff;
     font-size: 2em;
-    margin-top: .6rem;
+    margin-top: 0.6rem;
 }
 
 form .close-form-icon:hover,
@@ -88,26 +89,26 @@ form h1 {
 form header {
     display: flex;
     justify-content: space-between;
-    margin: -.3rem .3rem 1.25rem 0;
+    margin: -.3rem 0.3rem 1.25rem 0;
 }
 
 form input,
 form textarea {
     border: none;
-    border-radius: .3rem;
+    border-radius: 0.3rem;
     font-size: 1.2em;
-    padding: .3rem;
+    padding: 0.3rem;
 }
 
 form label {
     font-size: 1.2em;
-    margin: .3rem 0 .2rem;
+    margin: 0.3rem 0 0.2rem;
 }
 
 input[data-error]::after {
     color: #901c1c;
     content: attr(data-error);
-    font-size: .6em;
+    font-size: 0.6em;
 }
 
 @media (min-width: 600px) {

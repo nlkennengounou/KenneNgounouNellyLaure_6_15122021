@@ -1,4 +1,5 @@
-/* PH WORKS MEDIAS */
+/* Gallerie de medias du photographe style */
+
 #photographe-gallery {
     display: flex;
     flex-wrap: wrap;
@@ -19,7 +20,7 @@
     color: #901c1c;
     font-size: 1.1em;
     font-weight: 500;
-    margin: 0 0 .625rem;
+    margin: 0 0 0.625rem;
     width: 20.9375rem;
 }
 
@@ -35,7 +36,7 @@
 
 .photographe-gallery-elt img,
 .photographe-gallery-elt video {
-    border-radius: .3125rem;
+    border-radius: 0.3125rem;
     height: 11.875rem;
     object-fit: cover;
     width: 20.9375rem;

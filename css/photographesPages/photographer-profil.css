@@ -1,6 +1,6 @@
 /* ****************************** FISHEYE WEB SITE ****************************** */
-/* CSS bande de presentation d'un photographe 
-/* HEADER PH PROFIL */
+/* CSS bande de presentation d'un photographe */
+
 .photographe-city {
     color: #901c1c;
     font-size: .9em;
@@ -71,5 +71,3 @@
         margin-top: 20px;
     }
 }
-
-/*TODO: Add min-width*/
