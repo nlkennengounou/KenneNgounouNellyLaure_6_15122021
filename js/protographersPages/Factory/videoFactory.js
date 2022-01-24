@@ -27,6 +27,7 @@ export default class VideoFactory {
 
 		video.setAttribute("src", url_media);
 		video.setAttribute("role", "button");
+		//video.setAttribute("poster", `./media/photographers/${name.split(" ")[0]}/poster.jpg`);
 		video.className = "photographe-media";
 
 		return video;

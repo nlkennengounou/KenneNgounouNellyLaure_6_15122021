@@ -1,5 +1,5 @@
 {
-  "name": "KenneNgounouNellyLaure_6_15122021",
+  "name": "fisheye",
   "version": "1.0.0",
   "description": "Sixième projet du parcours \"Développeur Front End\" chez OpenClassroom. \r FishEye est un site web qui permet aux photographes indépendants de présenter leurs meilleurs travaux.\r ## Objectifs\r Le site est obsolète et a besoin d'être remanié.",
   "main": "index.js",
@@ -19,5 +19,6 @@
   "homepage": "https://github.com/nlkennengounou/KenneNgounouNellyLaure_6_15122021#readme",
   "devDependencies": {
     "eslint": "^8.7.0"
-  }
+  },
+  "dependencies": {}
 }

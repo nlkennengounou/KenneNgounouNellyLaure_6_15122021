@@ -1,6 +1,5 @@
 // ****************************** FISHEYE WEB SITE ****************************** //
 // class HomePage: Afficher la page d'accueil ************ //
-import  photographerFactory from "../protographersPages/Factory/photographerFactory.js";
 export default class HomePage {
 	displayPhotographers(data) {
 		// Récupère les données des photographes
@@ -12,7 +11,7 @@ export default class HomePage {
 		const photographersSection = document.querySelector(".photographers_section");
 
 		photographers.forEach((photographer) => {
-            
+			// eslint-disable-next-line no-undef
 			const photographerModel = photographerFactory(photographer);
 			const userCardDOM = photographerModel.getUserCardDOM();
 			photographersSection.appendChild(userCardDOM);
